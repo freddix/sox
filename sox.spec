@@ -1,7 +1,7 @@
 Summary:	Swiss Army knife of sound processing programs
 Name:		sox
 Version:	14.4.0
-Release:	1
+Release:	2
 License:	GPL v2+ (sox), LGPL v2+ (libsox)
 Group:		Applications/Sound
 Source0:	http://downloads.sourceforge.net/sox/%{name}-%{version}.tar.gz
@@ -13,11 +13,11 @@ URL:		http://sox.sourceforge.net/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	ffmpeg-devel
 BuildRequires:	flac-devel
 BuildRequires:	ladspa-devel
 BuildRequires:	lame-libs-devel
 BuildRequires:	libao-devel
+BuildRequires:	libav-devel
 BuildRequires:	libgomp-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libmad-devel
