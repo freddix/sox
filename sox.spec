@@ -1,14 +1,14 @@
 Summary:	Swiss Army knife of sound processing programs
 Name:		sox
-Version:	14.4.0
-Release:	2
+Version:	14.4.1
+Release:	1
 License:	GPL v2+ (sox), LGPL v2+ (libsox)
 Group:		Applications/Sound
 Source0:	http://downloads.sourceforge.net/sox/%{name}-%{version}.tar.gz
-# Source0-md5:	b0c15cff7a4ba0ec17fdc74e6a1f9cf1
+# Source0-md5:	670307f40763490a2bc0d1f322071e7a
 Patch0:		%{name}-dyn.patch
 Patch1:		%{name}-ffmpeg.patch
-Patch2:		%{name}-audio-output.patch
+Patch2:		%{name}-libva.patch
 URL:		http://sox.sourceforge.net/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
@@ -60,7 +60,7 @@ applications which will use the SoX sound file format converter.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p0
+%patch2 -p1
 
 %build
 %{__libtoolize}
