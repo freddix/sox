@@ -1,14 +1,12 @@
 Summary:	Swiss Army knife of sound processing programs
 Name:		sox
 Version:	14.4.1
-Release:	1
+Release:	2
 License:	GPL v2+ (sox), LGPL v2+ (libsox)
 Group:		Applications/Sound
 Source0:	http://downloads.sourceforge.net/sox/%{name}-%{version}.tar.gz
 # Source0-md5:	670307f40763490a2bc0d1f322071e7a
 Patch0:		%{name}-dyn.patch
-Patch1:		%{name}-ffmpeg.patch
-Patch2:		%{name}-libva.patch
 URL:		http://sox.sourceforge.net/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
@@ -17,7 +15,6 @@ BuildRequires:	flac-devel
 BuildRequires:	ladspa-devel
 BuildRequires:	lame-libs-devel
 BuildRequires:	libao-devel
-BuildRequires:	libav-devel
 BuildRequires:	libgomp-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libmad-devel
@@ -59,8 +56,6 @@ applications which will use the SoX sound file format converter.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -72,6 +67,7 @@ applications which will use the SoX sound file format converter.
 	--disable-static	\
 	--with-distro='Freddix'	\
 	--with-dyn-default	\
+	--with-ffmpeg=no	\
 	--with-lpc10=no
 %{__make}
 
@@ -121,7 +117,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/sox/libsox_fmt_vorbis.so
 %attr(755,root,root) %{_libdir}/sox/libsox_fmt_amr_nb.so
 %attr(755,root,root) %{_libdir}/sox/libsox_fmt_amr_wb.so
-%attr(755,root,root) %{_libdir}/sox/libsox_fmt_ffmpeg.so
 %attr(755,root,root) %{_libdir}/sox/libsox_fmt_mp3.so
 %{_mandir}/man1/play.1*
 %{_mandir}/man1/rec.1*
